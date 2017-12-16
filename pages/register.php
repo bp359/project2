@@ -10,15 +10,14 @@
 
     <link rel="stylesheet" href="css/styles.css?v=1.0">
 
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
+   
 </head>
 
 <body>
 
 
 <form action="index.php?page=accounts&action=register" method="post">
+
     First name: <input type="text" name="fname"><br>
     Last name: <input type="text" name="lname"><br>
     Email: <input type="text" name="email"><br>
