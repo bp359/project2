@@ -20,7 +20,7 @@ class homepageController extends http\controller
 //the template is an HTML page with PHP inserted in it.  just put an if/else statement to check for the session and show correct links
 
 
-        $templateData['site_name'] = '<center> FINAL PROJECT WSD </center>';
+        $templateData['site_name'] = 'mysite';
 
 //template data contains what will show up in the $data variable in the homepage template
 //the name of the template 'homepage' becomes 'homepage.php' in the pages directory
@@ -34,6 +34,18 @@ class homepageController extends http\controller
 
 //I just put a $_POST here but this is where you would put the code to add a record
         print_r($_POST);
+    }
+
+    static public function logout()
+    {
+        // remove all session variables
+        session_unset();
+
+        // destroy the session
+        session_destroy();
+
+        header("Location:  https://web.njit.edu/~bp359/mvc/");
+
     }
 
 }
