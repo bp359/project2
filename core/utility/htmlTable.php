@@ -24,7 +24,7 @@ class htmlTable
             $tableGen .= '<tr>';
             foreach ($record as $key => $value) {
                 if ($key == 'id') {
-                    $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View</a></td>';
+                        $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View</a></td>';
                 } else {
                     $tableGen .= '<td>' . $value . '</td>';
                 }
@@ -39,7 +39,7 @@ class htmlTable
 
     public static function generateTableFromOneRecord($innerArray)
     {
-        $tableGen = '<table border="2" cellpadding="10px" cellspacing ="0" width="40%"; > <tr>';
+        $tableGen = '<table border="1" cellpadding="10"><tr>';
 
         $tableGen .= '<tr>';
         foreach ($innerArray as $innerRow => $value) {
