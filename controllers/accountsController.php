@@ -64,7 +64,6 @@ class accountsController extends http\controller
 
             $_SESSION["email"] = $user->email;
             $_SESSION["userID"] = $user->id;
-
            header("Location:https://web.njit.edu/~bp359/mvc/index.php?page=tasks&action=all");
         }
         else
@@ -113,16 +112,11 @@ class accountsController extends http\controller
 
                 $_SESSION["userID"] = $user->id;
                 $_SESSION["email"] = $user->email;
-
-
                  header("location: https://web.njit.edu/~bp359/mvc/index.php?page=tasks&action=all");
 
-
              }
-
              else
              {
-
                  $error = 'password does not match';
                  self::getTemplate('error', $error);
              }
@@ -130,7 +124,6 @@ class accountsController extends http\controller
                }
 
     }
-
     public static function delete()
     {
       $record = accounts::findOne($_REQUEST['id']);
@@ -179,15 +172,6 @@ class accountsController extends http\controller
 
         self::getTemplate('edit_account', $record);
 
-
     }
-
-
-
-
-
-
-
-
 
 }
