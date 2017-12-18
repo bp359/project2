@@ -43,43 +43,49 @@ class accountsController extends http\controller
     //this is the function to save the user the user profile
     public static function store()
     {
-      //  print_r($_POST);
-        $user = accounts::findUserbyEmail($_POST['email']);
 
-        if($user==FALSE) {
+        if (\utility\validate::password($_POST['password'] == true)) {
+            echo 'password must be 6 characters';
+        } else {
 
-            session_start();
-            $record = new account();
-           // print_r($record);
-            $record->birthday = $_POST['birthday'];
-            $record->gender = $_POST['gender'];
-            $record->email = $_POST['email'];
-            $record->fname = $_POST['fname'];
-            $record->lname = $_POST['lname'];
-            $record->phone = $_POST['phone'];
-            $record->password = utility\password::setPassword($_POST['password']);
-            $record->save();
+            //  print_r($_POST);
             $user = accounts::findUserbyEmail($_POST['email']);
 
+            if ($user == FALSE) {
 
-            $_SESSION["email"] = $user->email;
-            $_SESSION["userID"] = $user->id;
-           header("Location:https://web.njit.edu/~bp359/mvc/index.php?page=tasks&action=all");
+                session_start();
+                $record = new account();
+                // print_r($record);
+                $record->birthday = $_POST['birthday'];
+                $record->gender = $_POST['gender'];
+                $record->email = $_POST['email'];
+                $record->fname = $_POST['fname'];
+                $record->lname = $_POST['lname'];
+                $record->phone = $_POST['phone'];
+                $record->password = utility\password::setPassword($_POST['password']);
+                $record->save();
+                $user = accounts::findUserbyEmail($_POST['email']);
+
+
+                $_SESSION["email"] = $user->email;
+                $_SESSION["userID"] = $user->id;
+                header("Location:https://web.njit.edu/~bp359/mvc/index.php?page=tasks&action=all");
+            } else {
+                $error = 'already registered';
+                self::getTemplate('error', $error);
+            }
         }
-        else
+    }
+
+        public
+        static function edit()
         {
-            $error = 'already registered';
-            self::getTemplate('error', $error);
+            $record = accounts::findOne($_REQUEST['id']);
+
+            self::getTemplate('edit_account', $record);
+
         }
-    }
 
-    public static function edit()
-    {
-        $record = accounts::findOne($_REQUEST['id']);
-
-        self::getTemplate('edit_account', $record);
-
-    }
 
     //this is to login, here is where you find the account and allow login or deny.
     public static function login()
