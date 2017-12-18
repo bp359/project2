@@ -5,9 +5,7 @@
 
 
 <form action="https://web.njit.edu/~bp359/mvc/index.php?page=tasks&action=store" method="POST" name="form">
-
-    <?php date_default_timezone_set('America/New_York'); ?>
-
+    <?php date_default_timezone_set('EST');?>
 
     <div class="container">
 
@@ -17,13 +15,9 @@
 
         <label><b>createddate</b></label>
         <input type="text"name="createddate" value=<?php echo date('Y-m-d')?> readonly >
-
         <br>
-
         <label><b>duedate</b></label>
         <input type="text" value="" name="duedate" >
-        
-
         <br>
 
         <label><b>message</b></label>
@@ -38,8 +32,6 @@
         <br>
 
         <input type="submit" name="btSubmit" value="Add Task">
-
-
 
 </form>
 
