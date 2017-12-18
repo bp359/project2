@@ -40,7 +40,7 @@
         <input type="text" name="email" placeholder="email address"/>
         <input type="password" name="password"placeholder="Password"/>
         <button>login</button>
-        <p class="message">Notregistered? <a href="#">Create an account</a></p>
+        <p class="message">Not Registered? <a href="#">Create an account</a></p>
     </form>
 </div>
 
@@ -50,6 +50,7 @@
 
 <script  src="pages/assets/js/index.js"></script>
 </body>
+
 <style>
     body  {
         background-image: url("2.jpg");
@@ -57,4 +58,9 @@
     }
 
 </style>
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit" style="color:#ff365e"> <center>FINAL PROJECT </center></p>
+    </div>
+</div>
 </html>
