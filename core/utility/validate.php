@@ -8,12 +8,12 @@ class validate
     {
         if(!count($data)>=6)
         {
-            return false;
+            return true;
 
         }
         {
 
-            return true;
+            return false;
         }
 
     }
